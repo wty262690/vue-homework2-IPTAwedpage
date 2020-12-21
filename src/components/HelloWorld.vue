@@ -12,9 +12,11 @@
         :key="`location-option-${p}`">{{p.p}}</p>
       </div>
       <div class="news">
-        <el-carousel :interval="4000" type="card" width="50vw" height="19vh">
+        <el-carousel :interval="4000" type="card" height="200px">
           <el-carousel-item v-for="item in newspicture" :key="item">
-            <img class="newsimgur" :src="item.src">
+            <div class="imgurblock">
+              <img class="newsimgur" :src="item.src">
+            </div>
           </el-carousel-item>
         </el-carousel>
       </div>
@@ -42,6 +44,9 @@ export default {
       {src : "https://ipta.nthu.edu.tw/wp-content/uploads/2020/10/banner.png"},
       {src : "https://ipta.nthu.edu.tw/wp-content/uploads/2020/09/light2-01.jpg"},
       {src : "https://ipta.nthu.edu.tw/wp-content/uploads/2019/10/board-2303325_1920.jpg"},
+      {src : "https://ipta.nthu.edu.tw/wp-content/uploads/2020/05/tfho.jpg"},
+      {src : "https://ipta.nthu.edu.tw/wp-content/uploads/2020/05/200528.jpg"},
+      {src : "https://ipta.nthu.edu.tw/wp-content/uploads/2020/04/NEWS.jpg"}
     ],
     
     }
@@ -115,12 +120,18 @@ top: 70px;
     opacity: 0.75;
     line-height: 200px;
     margin: 0;
-    width:30%;
-    height:100%;
+    width:60vw;
+    height:1100px;
     text-align: center;
 }
 .newsimgur{
+  text-align: center;
   width:100%;
   height:auto;
+}
+.newsimgur{
+  height:100%;
+  background-color: red;
+  padding:10px;
 }
 </style>
