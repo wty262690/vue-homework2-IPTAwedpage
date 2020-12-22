@@ -112,7 +112,7 @@ export default {
 }
 .content {
   position: relative;
-  z-index:9999;
+  z-index:888;
 }
 .headblock{
   height:100vh;
@@ -126,8 +126,6 @@ export default {
   font-size:12px;
   padding:9px;
 }
-
-
 .news{
   position:relative;
   left:20vw;
