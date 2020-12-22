@@ -5,6 +5,7 @@
       <img class= "background" alt="white back ground with word" src="https://i.imgur.com/fPwm7R4.png">
     </div>
     <div class="content">
+      <div class="headblock"></div>
       <div class="wordblock">
         <h1 class="title">{{title}}</h1>
         <p class="word" 
@@ -12,16 +13,24 @@
         :key="`location-option-${p}`">{{p.p}}</p>
       </div>
       <div class="news">
-        <el-carousel :interval="4000" type="card" height="200px">
+        <el-carousel :interval="4000" type="card" height="290px">
           <el-carousel-item v-for="item in newspicture" :key="item">
-            <div class="imgurblock">
-              <img class="newsimgur" :src="item.src">
+            <div class="demo-image">
+              <div class="block">
+                <el-image
+                  style="width: 100%; height: 200px"
+                  :src ="item.src"
+                  fit="cover"></el-image>
+              </div>
             </div>
+            <p class="newstitle">{{item.title}}</p>
+            <p class="newsword">{{item.word}}</p>
           </el-carousel-item>
         </el-carousel>
       </div>
-    </div>
   </div>
+  </div>
+  
 </template>
 
 <script>
@@ -41,12 +50,18 @@ export default {
       },
     ] ,
     newspicture:[
-      {src : "https://ipta.nthu.edu.tw/wp-content/uploads/2020/10/banner.png"},
-      {src : "https://ipta.nthu.edu.tw/wp-content/uploads/2020/09/light2-01.jpg"},
-      {src : "https://ipta.nthu.edu.tw/wp-content/uploads/2019/10/board-2303325_1920.jpg"},
-      {src : "https://ipta.nthu.edu.tw/wp-content/uploads/2020/05/tfho.jpg"},
-      {src : "https://ipta.nthu.edu.tw/wp-content/uploads/2020/05/200528.jpg"},
-      {src : "https://ipta.nthu.edu.tw/wp-content/uploads/2020/04/NEWS.jpg"}
+      { src : "https://ipta.nthu.edu.tw/wp-content/uploads/2020/10/banner.png",
+        title : "《那顆Ｇ1咻！》國立清華大學藝術學院學士班第一屆系展",
+        word : " 「當藝術碰撞科技，會迸出什麼樣的火花呢?」"},
+      { src : "https://ipta.nthu.edu.tw/wp-content/uploads/2019/10/board-2303325_1920.jpg",
+        title : "2020藝術學院學士班春之清華獎學金",
+        word : "【獲獎名單】"},
+      { src : "https://ipta.nthu.edu.tw/wp-content/uploads/2020/05/tfho.jpg",
+        title:"《科技物件與人類幻象》",
+        word:"【講座與工作坊】",},
+      { src : "https://ipta.nthu.edu.tw/wp-content/uploads/2020/05/200528.jpg",
+        title : "Art and the Brain: A Glimpse of Neuroaesthetics從腦科學看藝術",
+        word: "【演講】"},
     ],
     
     }
@@ -57,40 +72,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.backimg{
-  z-index: 1;
-}
-.underground{
-position: fixed;
-width: 120%;
-height:auto;
-left: -110px;
-top: 70px;
-}
-
-.background{
-  position: absolute;
-  width: 100%;
-  height:auto;
-  left: 0px;
-  top: 60px;
-}
-.content {
-  position: relative;
-  z-index:9999;
-  top:100;
-}
-.wordblock{
-  top:1000px;
-}
-.title{
-  font-size:20px;
-}
-.word{
-  line-height:20px;
-  font-size:12px;
-}
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -109,29 +90,61 @@ top: 70px;
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-.news{
-  height:100vh;
-  width:100vw;
+
+.backimg{
+  z-index: 1;
 }
-  
-.el-carousel__item {
-    color: #475669;
-    font-size: 14px;
-    opacity: 0.75;
-    line-height: 200px;
-    margin: 0;
-    width:60vw;
-    height:1100px;
-    text-align: center;
+.underground{
+  position: fixed;
+  width: 100%;
+  max-width:1440px;
+  top: 70px;
+  left:0px;
 }
-.newsimgur{
-  text-align: center;
-  width:100%;
+
+.background{
+  position: absolute;
+  width: 100%;
+  max-width:1440px;
   height:auto;
+  left:0px;
+  top: 60px;
 }
-.newsimgur{
-  height:100%;
-  background-color: red;
-  padding:10px;
+.content {
+  position: relative;
+  z-index:9999;
 }
+.headblock{
+  height:100vh;
+}
+
+.title{
+  font-size:20px;
+}
+.word{
+  line-height:20px;
+  font-size:12px;
+  padding:9px;
+}
+
+
+.news{
+  position:relative;
+  left:20vw;
+}
+.el-carousel {
+  width:65vw;
+  max-width:1440px;
+}
+.el-carousel__item {
+    width:30vw;
+    filter: blur(20px);
+}
+.is-active{
+  filter: blur(0px);
+}
+.newstitle{
+  font-size:16px;
+}
+
 </style>
