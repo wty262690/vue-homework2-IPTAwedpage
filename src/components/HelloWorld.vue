@@ -7,11 +7,12 @@
     <div class="content">
       <div class="headblock"></div>
       <div class="wordblock">
-        <h1 class="title">{{title}}</h1>
+        <div class="wordblock_con">
+          <h1 class="hometitle">{{hometitle}}</h1>
         <p class="word" 
-        v-for="(p) in text"
-        :key="`location-option-${p}`">{{p.p}}</p>
-      </div>
+        v-for=" (contentword) in text"
+        :key="`location-option-${contentword}`">{{contentword.p}}</p>
+        </div>
       <div class="news">
         <el-carousel :interval="4000" type="card" height="290px">
           <el-carousel-item v-for="item in newspicture" :key="item">
@@ -28,6 +29,7 @@
           </el-carousel-item>
         </el-carousel>
       </div>
+      </div>
   </div>
   </div>
   
@@ -38,7 +40,7 @@ export default {
   name: 'hello',
   data(){
     return {
-    title: "學士班特色",
+    hometitle: "學士班特色",
     text:[{
         p:"清華是國際頂尖科技大學，加上合校後的藝術學院，具備發展「科技藝術」的卓越條件。"
       },
@@ -72,24 +74,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 
 .backimg{
   z-index: 1;
@@ -118,6 +102,16 @@ export default {
   height:100vh;
 }
 
+.wordblock{
+  width:100%;
+  height:auto;
+  background-color:white;
+}
+
+.wordblock_con{
+  height:50vw;
+}
+
 .title{
   font-size:20px;
 }
@@ -144,5 +138,4 @@ export default {
 .newstitle{
   font-size:16px;
 }
-
 </style>
