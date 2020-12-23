@@ -176,14 +176,15 @@ export default {
 
 .news{
   padding-top:20vh;
-  padding-left:15%;
+  padding-left:10%;
   background-color: white;
 }
 .el-carousel {
-  width:75vw;
+  width:85vw;
   max-width:1440px;
 }
 .el-carousel__item {
+    left:4vw;
     width:551px;
     filter: blur(20px);
 }
