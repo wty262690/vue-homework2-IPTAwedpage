@@ -1,6 +1,6 @@
 <template>
-  <div class="hello">
-    <div class="backimg">
+  <div class="hello" >
+    <div class="backimg" align="center">
       <el-image class= "underground" alt="lines"
             style="width: 88vw; height: auto"
             src ="https://i.imgur.com/Dt2F7ts.jpg" 
@@ -11,10 +11,10 @@
             src ="https://i.imgur.com/QWUsaT6.png"
             fit="cover"></el-image>
     </div>
-    <div class="content">
+    <div class="content" >
       <div class="headblock"></div>
-      <div class="wordblock">
-        <div class="wordblock_con">
+      <div class="wordblock" align="center">
+        <div class="wordblock_con" >
           <div class="wordblock_con_1">
             <h1 class="hometitle">{{hometitle1}}</h1>
             <p class="word" 
@@ -26,36 +26,38 @@
         <br>
         <br>
         <br>
-
         <div class="wordblock_con_2">
           <h1 class="hometitle">{{hometitle2}}</h1>
             <p class="word gray_word">社會關懷與品格實踐能力｜美感認知與經典欣賞能力｜自然感知與創新發想能力｜邏輯思辨與語文溝通能力｜國際觀點與在地行動能力｜資訊掌握與科技應用能力</p>
-            <p class="newword">{{text2_1}}</p>
-            <p class="newword2">{{text2_2}}</p>
+            <div class="newwordblock" align="center">
+              <p class="newword" alige="left">{{text2_1}}</p>
+              <p class="newword2">{{text2_2}}</p>
+            </div>
           </div>
         </div>
       <div class="separate"></div>
-      <div class="big_newstitle">
-              近期活動
-      </div>
-      <div class="news">
-        
-        <el-carousel :interval="4000" type="card" height="480px">
-          <el-carousel-item v-for="item in newspicture" :key="item">
-            <br>
-            <br>
-            <div class="demo-image">
-              <div class="block">
-                <el-image
-                  style="width: 100%; height: 336px"
-                  :src ="item.src"
-                  fit="cover"></el-image>
+        <div class="newsblock">
+        <div class="big_newstitle" align="center">
+                近期活動
+        </div>
+        <div class="news">
+          <el-carousel :interval="4000" type="card" height="480px" align="center">
+            <el-carousel-item v-for="item in newspicture" :key="item">
+              <br>
+              <br>
+              <div class="demo-image">
+                <div class="block">
+                  <el-image
+                    style="width: 100%; height: 336px"
+                    :src ="item.src"
+                    fit="cover"></el-image>
+                </div>
               </div>
-            </div>
-            <p class="newstitle">{{item.title}}</p>
-            <p class="newsword">{{item.word}}</p>
-          </el-carousel-item>
-        </el-carousel>
+              <p class="newstitle">{{item.title}}</p>
+              <p class="newsword">{{item.word}}</p>
+            </el-carousel-item>
+          </el-carousel>
+        </div>
       </div>
       <div class="separate2"></div>
       <div class="bottomcolor">
@@ -111,52 +113,49 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 .backimg{
   z-index: 1;
 }
 .underground{
   position: fixed;
-  max-width:1430px;
+  max-width:100vw;
   top: 0px;
   left:0px;
 }
 
 .whiteblock{
+  padding-bottom: 100px;
   position:absolute;
   background-color: white;
-  width:40vw;
+  top:70vh;
+  width:100vw;
+  height:200vh;
   left:0px;
-  height:340%;
 }
 
 .background{
   position: absolute;
-  width: 100vw;
-  height:auto;
+  width: auto;
+  height:100vh;
   left:0px;
   top: 20px;
 }
 .content {
   position: relative;
+  padding:0px;
   z-index:888;
 }
 .headblock{
   height:110vh;
 }
 
-.wordblock{
-  width:90vw;
-
-}
 
 .wordblock_con{
-  padding-left:22%;
   width:60vw;
 }
 
 .hometitle{
-  font-size:20px;
+  font-size:25px;
 }
 .word{
   line-height:20px;
@@ -165,6 +164,7 @@ export default {
 }
 
 .separate{
+  position:relative;
   width:100%;
   height:30vh;
 }
@@ -175,36 +175,34 @@ export default {
 }
 
 .news{
-  padding-top:20vh;
-  padding-left:10%;
+  padding-top:10vh;
   background-color: white;
 }
 .el-carousel {
-  width:85vw;
+  width:70vw;
   max-width:1440px;
 }
 .el-carousel__item {
-    left:4vw;
+    
     width:551px;
-    filter: blur(20px);
+    filter: blur(5px);
 }
 .is-active{
   filter: blur(0px);
 }
 .big_newstitle{
   align-items: center;
+  width:50vw;
   z-index:0;
   letter-spacing: 0.5em;
   border:solid 2px #a0cccc;
   color:#a0cccc;
   padding:10px;
-  padding-left:20px;
   border-radius: 10px;
   font-family: Roboto;
   font-weight: 900;
-  position: absolute;
-  left:75px;
-  font-size:30px;
+  position: relative;
+  font-size:25px;
 }
 
 .newstitle{
@@ -214,56 +212,61 @@ export default {
 }
 .newsword{
   color:rgb(184, 182, 182);
-  font-size:12px;
+  font-size:14px;
 }
 .gray_word{
-  font-size:12px;
+  font-size:13px;
   color:rgb(184, 182, 182);
 }
 .bottomcolor{
   padding-top:20px;
-  left:0px;
-  width:98vw;
+  width:99vw;
   height:10vh;
   background-color: #a0cccc;
 }
-.wordblock_con_2{
-  height:50vh;
+.newwordblock{
+  position:relative;
+  width:60vw;
+  max-height:40vh;
 }
 .newword{
-position: absolute;
+position:relative;
 width: 25vw;
-height: 633px;
-left: 23vw;
-top: 168vh;
-font-size: 13px;
+max-height:40vh;
+left:-17vw;
+font-size: 14px;
 line-height: 40px;
-text-align: center;
+text-align: left;
 letter-spacing: 0.05em;
 text-transform: uppercase;
 }
 .newword2{
 position: absolute;
 width: 25vw;
+max-height:40vh;
+left:35vw;
+top:-12px;
 height: 633px;
-left: 51vw;
-top: 168vh;
-font-size: 13px;
+font-size: 14px;
 line-height: 40px;
-text-align: center;
+text-align: left;
 letter-spacing: 0.05em;
 text-transform: uppercase;
 }
 
 .contect{
   position:absolute;
-  width:20vw;
-  font-size:12px;
+  width:40vw;
+  left:-100px;
+  font-size:14px;
 }
 .addr{
   padding-left:60vw;
+  width:18vw;
 }
 .phone{
-  padding-left:77vw;
+  padding-left:78vw;
+  width:20vw;
 }
+
 </style>

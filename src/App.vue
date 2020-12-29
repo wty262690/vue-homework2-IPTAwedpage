@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <div class="top">
+      <div class="top" align="center">
         <el-menu
         :default-active="activeIndex"
         class="el-menu-demo"
@@ -53,6 +53,7 @@
 </template>
 
 <style scoped>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -82,7 +83,7 @@ a:-webkit-any-link {
 }
 .el-menu-demo{
   padding-left:50%;
-  width:100vw;
+  width:80vw;
 }
 .item_in_submenu{
   font-size:12px;
